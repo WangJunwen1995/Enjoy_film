@@ -1,3 +1,15 @@
 <resources>
-    <string name="app_name">Ticket-app</string>
+    <string name="app_name">PandaMovie</string>
+    <string name="UnLogin">未登录</string>
+
+    <!-- String for LoginOrRegisterActivity -->
+    <string name="LRActivity_UserName">用户名</string>
+    <string name="LRActivity_UserName_Hint">请输入用户名</string>
+    <string name="LRActivity_Password">密码</string>
+    <string name="LRActivity_Password_Hint">请输入密码</string>
+    <string name="LRActivity_Login">登录</string>
+    <string name="LRActivity_Register">注册</string>
+    <string name="LRActivity_Divider">/</string>
+
 </resources>
+

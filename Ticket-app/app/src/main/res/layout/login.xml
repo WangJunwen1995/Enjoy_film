@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorRed"
+
+    >
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profile_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/icon"
+        app:civ_border_color="#FF000000"
+        app:civ_border_width="2dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="100dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="60dp">
+        <LinearLayout
+            android:id="@+id/LOR_ChooseLOR"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/LOR_Text_Margin"
+            android:layout_gravity="center"
+            >
+
+            <Button
+                android:id="@+id/chooseLogin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/LRActivity_Login"
+                android:textSize="@dimen/LOR_TextSize"
+                android:background="@drawable/ripple_button"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/LRActivity_Divider"
+                android:textSize="@dimen/LOR_TextSize" />
+
+            <Button
+                android:id="@+id/chooseRegister"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/LRActivity_Register"
+                android:textSize="@dimen/LOR_TextSize"
+                android:background="@drawable/ripple_button"/>
+        </LinearLayout>
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:stretchColumns="1">
+
+            <TableRow>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_marginEnd="@dimen/LOR_Text_Margin"
+                    android:layout_marginStart="@dimen/LOR_Text_Margin"
+                    android:gravity="center"
+                    android:text="@string/LRActivity_UserName"
+                    android:textSize="@dimen/LOR_TextSize"
+                    android:textColor="@color/white"/>
+
+                <EditText
+                    android:id="@+id/LOR_UserName"
+                    android:hint="@string/LRActivity_UserName_Hint"
+                    android:textColorHint="@color/white"/>
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:gravity="center"
+                    android:text="@string/LRActivity_Password"
+                    android:textSize="@dimen/LOR_TextSize"
+                    android:textColor="@color/white"/>
+
+                <EditText
+                    android:hint="@string/LRActivity_Password_Hint"
+                    android:textColorHint="@color/white"
+                    android:inputType="textPassword"
+                    android:id="@+id/LOR_Password" />
+            </TableRow>
+        </TableLayout>
+
+
+
+        <Button
+            android:id="@+id/commit_Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ripple_button"
+            android:text="@string/LRActivity_Login"
+            android:textSize="@dimen/LOR_TextSize"
+            android:layout_marginTop="20dp"/>
+
+    </LinearLayout>
+</LinearLayout>
