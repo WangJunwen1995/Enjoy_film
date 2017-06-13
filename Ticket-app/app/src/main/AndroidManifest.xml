@@ -15,6 +15,22 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
+        <activity android:name=".Controller.MainActivity"
+            android:launchMode="singleInstance">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"></action>
+                <category android:name="android.intent.category.LAUNCHER"></category>
+            </intent-filter>
+        </activity>
+        <activity android:name=".Controller.Login"
+            android:launchMode="singleInstance"
+            android:windowSoftInputMode="adjustPan">
+
+        </activity>
+        <activity android:name=".Controller.MovieDetail"
+            android:launchMode="singleInstance">
+
+        </activity>
 
     </application>
 

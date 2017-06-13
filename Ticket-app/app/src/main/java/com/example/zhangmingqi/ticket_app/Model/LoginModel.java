@@ -6,11 +6,14 @@ import android.content.SharedPreferences;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.example.zhangmingqi.ticket_app.Controller.CurrentUser;
+import com.example.zhangmingqi.ticket_app.Controller.MainActivity;
+
+
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.OkHttpClient;
-import pandamovie.example.com.pandamovie.Controller.CurrentUser;
-import pandamovie.example.com.pandamovie.Controller.MainActivity;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -51,14 +54,14 @@ public class LoginModel {
                     Log.d("有数据", response.body().toString());
                     if (response.body().toString().equals("true")) {
                         isLogin = "true";
-                        //CurrentUser.getInstance().isLogin = true;
+                        CurrentUser.getInstance().isLogin = true;
                         SharedPreferences sharedPreferences = activity.getSharedPreferences(Preference_Name,MODE);
                         SharedPreferences.Editor editor = sharedPreferences.edit();
                         editor.putString("isLogin","true");
                         editor.commit();
                         Toast.makeText(activity,"登录成功！",Toast.LENGTH_SHORT).show();
-                        //Intent intent = new Intent(activity,MainActivity.class);
-                        //activity.startActivity(intent);
+                        Intent intent = new Intent(activity,MainActivity.class);
+                        activity.startActivity(intent);
 
                     }
                     else {

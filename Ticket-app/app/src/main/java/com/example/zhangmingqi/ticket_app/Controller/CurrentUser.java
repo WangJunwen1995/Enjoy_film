@@ -1,8 +1,6 @@
 package com.example.zhangmingqi.ticket_app.Controller;
 
-/**
- * Created by 39092 on 2017/5/4.
- */
+
 //单例类，用于保存用户状态相关信息
 public class CurrentUser {
     //用户名、地点、登录状态

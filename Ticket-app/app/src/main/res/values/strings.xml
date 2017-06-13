@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">PandaMovie</string>
+    <string name="app_name">EnjoyFilm</string>
     <string name="UnLogin">未登录</string>
 
     <!-- String for LoginOrRegisterActivity -->

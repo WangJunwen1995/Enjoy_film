@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+<TableLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:stretchColumns="0"
+    android:layout_margin="5dp">
+    <TableRow>
+        <TextView
+            android:id="@+id/cinemaName"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:textSize="25sp"
+            android:text="大学城电影院"
+            android:textColor="@color/black"
+            android:layout_column="0"
+
+            />
+        <TextView android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:textSize="25sp"
+            android:text="    票价："
+            android:textColor="@color/black"
+            android:layout_column="0"
+            />
+        <TextView
+            android:id="@+id/price"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:textSize="25sp"
+            android:text="19元"
+            android:textColor="@color/colorRed"
+            android:layout_column="2"/>
+    </TableRow>
+    <TableRow>
+        <TextView
+            android:id="@+id/time"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:textSize="25sp"
+            android:text="时间"
+            android:textColor="@color/black"
+            android:layout_column="0"/>
+        <TextView android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:textSize="25sp"
+            android:text="票余量："
+            android:textColor="@color/black"
+            android:layout_column="0"/>
+        <TextView
+            android:id="@+id/tickets"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:textSize="25sp"
+            android:text="58张"
+            android:textColor="@color/colorRed"
+            android:layout_column="2"/>
+    </TableRow>
+
+</TableLayout>
+</LinearLayout>
