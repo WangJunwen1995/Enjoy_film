@@ -52,7 +52,7 @@ public class MovieDetail extends AppCompatActivity {
                 SharedPreferences sharedPreferences = getSharedPreferences(Preference_Name,MODE);
                 String isLogin = sharedPreferences.getString("isLogin","false");
 
-                /*if (isLogin.equals("true")) {
+                if (isLogin.equals("true")) {
                     CurrentUser.getInstance().isLogin = true;
                     Intent intent = new Intent(MovieDetail.this, SeclectCinema.class);
                     Bundle bundle = new Bundle();
@@ -64,7 +64,7 @@ public class MovieDetail extends AppCompatActivity {
                     Toast.makeText(MovieDetail.this,"请先登录！",Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(MovieDetail.this, Login.class);
                     startActivity(intent);
-                }*/
+                }
             }
         });
     }

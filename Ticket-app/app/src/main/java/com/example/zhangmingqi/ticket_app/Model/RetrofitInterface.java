@@ -26,9 +26,9 @@ public interface RetrofitInterface {
         @POST("movie")
         Call<MovieInfo> getMovieInfo(@Field("moviename") String moviename);
 
-        /*@FormUrlEncoded
+        @FormUrlEncoded
         @POST("cinema")
-        Call<ArrayList<CinemaRetro>> getCinemaInfo(@Field("date") String date, @Field("moviename") String moviename);*/
+        Call<ArrayList<CinemaRetro>> getCinemaInfo(@Field("date") String date, @Field("moviename") String moviename);
 
         @FormUrlEncoded
         @POST("ticket")

@@ -31,6 +31,10 @@
             android:launchMode="singleInstance">
 
         </activity>
+        <activity android:name=".Controller.SeclectCinema"
+            android:launchMode="singleInstance">
+
+        </activity>
 
     </application>
 
