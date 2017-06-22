@@ -23,7 +23,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 //负责登录页面的网络请求，数据处理
 public class LoginModel {
-    public static final String IP = "http://192.168.1.57:3000/";
+    // public static final String IP = "http://192.168.1.57:3000/";
     public String isLogin = "false";
     public Activity activity;
     public static int MODE;
@@ -36,12 +36,12 @@ public class LoginModel {
     }
     public String login(String username,String password) {
         OkHttpClient client = new OkHttpClient.Builder()
-                .connectTimeout(4, TimeUnit.SECONDS)
-                .writeTimeout(5, TimeUnit.SECONDS)
-                .readTimeout(5, TimeUnit.SECONDS)
+                .connectTimeout(10, TimeUnit.SECONDS)
+                .writeTimeout(10, TimeUnit.SECONDS)
+                .readTimeout(10, TimeUnit.SECONDS)
                 .build();
         Toast.makeText(activity,"正在登录...",Toast.LENGTH_SHORT).show();
-        Retrofit retrofit = new Retrofit.Builder().baseUrl(IP).addConverterFactory(GsonConverterFactory.create()).client(client).build();
+        Retrofit retrofit = new Retrofit.Builder().baseUrl(CurrentUser.getInstance().IP).addConverterFactory(GsonConverterFactory.create()).client(client).build();
         RetrofitInterface service = retrofit.create(RetrofitInterface.class);
         Call<Boolean> call = service.login(username,password);
         call.enqueue(new Callback<Boolean>() {
@@ -88,8 +88,8 @@ public class LoginModel {
                 .writeTimeout(5, TimeUnit.SECONDS)
                 .readTimeout(5, TimeUnit.SECONDS)
                 .build();
-        Toast.makeText(activity,"正在登录...",Toast.LENGTH_SHORT).show();
-        Retrofit retrofit = new Retrofit.Builder().baseUrl(IP).addConverterFactory(GsonConverterFactory.create()).client(client).build();
+        Toast.makeText(activity,"正在注册...",Toast.LENGTH_SHORT).show();
+        Retrofit retrofit = new Retrofit.Builder().baseUrl(CurrentUser.getInstance().IP).addConverterFactory(GsonConverterFactory.create()).client(client).build();
         RetrofitInterface service = retrofit.create(RetrofitInterface.class);
         Call<Boolean> call = service.register(username,password);
         call.enqueue(new Callback<Boolean>() {

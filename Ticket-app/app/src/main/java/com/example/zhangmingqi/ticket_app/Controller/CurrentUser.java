@@ -7,6 +7,7 @@ public class CurrentUser {
     public String userName,location;
     public boolean isLogin;
     public int number;//请求的电影id
+    public String IP = "http://192.168.1.57:3000/";
     private CurrentUser() {
         number = 1;
         location = "广州";

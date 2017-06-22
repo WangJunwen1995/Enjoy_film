@@ -31,7 +31,7 @@ public class MainViewModel {
     public MainView mainView;
     public Activity activity;
     public ImageView imgView;
-    public static final String IP = "http://192.168.1.57:3000/";
+    //public static final String IP = "http://172.20.10.10:3000/";
     public String imageName,imageURL;
     public MainViewModel(Activity _activity, MainView _mainView) {
         mainView = _mainView;
@@ -63,7 +63,7 @@ public class MainViewModel {
                 .readTimeout(5, TimeUnit.SECONDS)
                 .build();
         Toast.makeText(activity,"正在获取最新电影...",Toast.LENGTH_SHORT).show();
-        Retrofit retrofit = new Retrofit.Builder().baseUrl(IP).addConverterFactory(GsonConverterFactory.create()).client(client).build();
+        Retrofit retrofit = new Retrofit.Builder().baseUrl(CurrentUser.getInstance().IP).addConverterFactory(GsonConverterFactory.create()).client(client).build();
         RetrofitInterface service = retrofit.create(RetrofitInterface.class);
         int num = CurrentUser.getInstance().number;
         if (num > 15) {
@@ -78,10 +78,11 @@ public class MainViewModel {
                 if (response.body() != null) {
                     imageName = response.body().image;
 
-                    imageURL = "http://192.168.1.57:3000/image/"+imageName;
+                    imageURL = CurrentUser.getInstance().IP+"image/"+imageName;
+                    //  Log.d("名字",imageURL);
                     imageName = imageName.substring(0,imageName.indexOf("."));
                     Glide.with(activity).load(imageURL).placeholder(R.drawable.male).error(R.drawable.female).centerCrop().priority(Priority.HIGH).into(imgView);
-                    Log.d("请求到名字",imageName);
+                    //   Log.d("请求到名字",imageName);
                 } else {
                     imageName = "尚未请求到电影信息！";
                     Log.d("response主页面", "空的");
@@ -95,6 +96,6 @@ public class MainViewModel {
             }
         });
 
-        //请求到图片以后setReshing(false)
+        //请求道图片以后setReshing(false)
     }
 }

@@ -35,83 +35,84 @@ public class SeclectCinema extends TabActivity {
     public String movieName;
     public String date;
     public CinemaAdapter adapter;
-   @Override
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
-       super.onCreate(savedInstanceState);
-       setContentView(R.layout.select_cinema);
-       initView();
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.select_cinema);
+        initView();
       /* Calendar c = Calendar.getInstance();
        int day = c.get(Calendar.DAY_OF_MONTH);
        int month = c.get(Calendar.MONTH)+1;*///为何不准，加1才可以
-       int day = 1;
-       int month = 6;
-       //Log.d("时间",month+"");
-       addListenner();
-       //改变button背景和颜色
-       Bundle bundle = getIntent().getExtras();
-       movieName = bundle.getString("movieName");
-      // Log.d("moviename",movieName);
-       allData = new HashMap<>();
-       cinemaModel = new CinemaModel(SeclectCinema.this,listView,allData,adapter);
-       sortByPrice_button.setBackgroundColor(Color.WHITE);
-       sortByPrice_button.setTextColor(Color.RED);
-       String tab1 = Integer.toString(month)+ "月" + Integer.toString(day) + "日";
-       String tab2 = Integer.toString(month)+ "月" + Integer.toString(day+1) + "日";
-       String tab3 = Integer.toString(month)+ "月" + Integer.toString(day+2) + "日";
-       String tab4 = Integer.toString(month)+ "月" + Integer.toString(day+3) + "日";
-       String tab5 = Integer.toString(month)+ "月" + Integer.toString(day+4) + "日";
-       tabHost.addTab(tabHost.newTabSpec(tab1).setIndicator(tab1).setContent(R.id.sortLinearLayout));
-       tabHost.addTab(tabHost.newTabSpec(tab2).setIndicator(tab2).setContent(R.id.sortLinearLayout));
-       tabHost.addTab(tabHost.newTabSpec(tab3).setIndicator(tab3).setContent(R.id.sortLinearLayout));
-       tabHost.addTab(tabHost.newTabSpec(tab3).setIndicator(tab3).setContent(R.id.sortLinearLayout));
-       tabHost.addTab(tabHost.newTabSpec(tab4).setIndicator(tab4).setContent(R.id.sortLinearLayout));
-       tabHost.setBackgroundColor(Color.RED);
-       tabHost.setCurrentTab(0);//会调用一次TabChangedLisenner
-       date = tabHost.getCurrentTabTag();
-   }
-   private void initView() {
+        int day = 1;
+        int month = 6;
+        //Log.d("时间",month+"");
+        addListenner();
+        //改变button背景和颜色
+        Bundle bundle = getIntent().getExtras();
+        movieName = bundle.getString("movieName");
+        // Log.d("moviename",movieName);
+        allData = new HashMap<>();
+        cinemaModel = new CinemaModel(SeclectCinema.this,listView,allData,adapter);
+        sortByPrice_button.setBackgroundColor(Color.WHITE);
+        sortByPrice_button.setTextColor(Color.RED);
+        String tab1 = Integer.toString(month)+ "月" + Integer.toString(day) + "日";
+        String tab2 = Integer.toString(month)+ "月" + Integer.toString(day+1) + "日";
+        String tab3 = Integer.toString(month)+ "月" + Integer.toString(day+2) + "日";
+        String tab4 = Integer.toString(month)+ "月" + Integer.toString(day+3) + "日";
+        String tab5 = Integer.toString(month)+ "月" + Integer.toString(day+4) + "日";
+        tabHost.addTab(tabHost.newTabSpec(tab1).setIndicator(tab1).setContent(R.id.sortLinearLayout));
+        tabHost.addTab(tabHost.newTabSpec(tab2).setIndicator(tab2).setContent(R.id.sortLinearLayout));
+        tabHost.addTab(tabHost.newTabSpec(tab3).setIndicator(tab3).setContent(R.id.sortLinearLayout));
+        tabHost.addTab(tabHost.newTabSpec(tab3).setIndicator(tab3).setContent(R.id.sortLinearLayout));
+        tabHost.addTab(tabHost.newTabSpec(tab4).setIndicator(tab4).setContent(R.id.sortLinearLayout));
+        tabHost.setBackgroundColor(Color.RED);
+        tabHost.setCurrentTab(1);//会调用一次TabChangedLisenner
+        tabHost.setCurrentTab(0);
+        date = tabHost.getCurrentTabTag();
+    }
+    private void initView() {
 
-       tabHost = getTabHost();
-       sortByPrice_button = (Button)findViewById(R.id.sortByPrice_button);
-       sortByTickets_button = (Button)findViewById(R.id.sortByTickets_button);
-       listView = (ListView)findViewById(R.id.listView);
+        tabHost = getTabHost();
+        sortByPrice_button = (Button)findViewById(R.id.sortByPrice_button);
+        sortByTickets_button = (Button)findViewById(R.id.sortByTickets_button);
+        listView = (ListView)findViewById(R.id.listView);
 
-   }
-   private void addListenner() {
-       tabHost.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
+    }
+    private void addListenner() {
+        tabHost.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
             @Override
             public void onTabChanged(String tabId) {
                 updateTab(tabHost);
 
             }
         });
-       sortByTickets_button.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View v) {
+        sortByTickets_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
-               v.setBackgroundColor(Color.WHITE);
+                v.setBackgroundColor(Color.WHITE);
                 sortByTickets_button.setTextColor(Color.RED);
-               sortByPrice_button.setTextColor(Color.WHITE);
-               sortByPrice_button.setBackgroundColor(Color.RED);
+                sortByPrice_button.setTextColor(Color.WHITE);
+                sortByPrice_button.setBackgroundColor(Color.RED);
 
-           }
-       });
-       sortByPrice_button.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View v) {
+            }
+        });
+        sortByPrice_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
-               v.setBackgroundColor(Color.WHITE);
-               sortByPrice_button.setTextColor(Color.RED);
-               sortByTickets_button.setTextColor(Color.WHITE);
-               sortByTickets_button.setBackgroundColor(Color.RED);
-           }
-       });
-       listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-           @Override
-           public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-               TextView price = (TextView)view.findViewById(R.id.price);
-               final TextView cinemaName = (TextView)view.findViewById(R.id.cinemaName);
-               final TextView time = (TextView)view.findViewById(R.id.time);
+                v.setBackgroundColor(Color.WHITE);
+                sortByPrice_button.setTextColor(Color.RED);
+                sortByTickets_button.setTextColor(Color.WHITE);
+                sortByTickets_button.setBackgroundColor(Color.RED);
+            }
+        });
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                TextView price = (TextView)view.findViewById(R.id.price);
+                final TextView cinemaName = (TextView)view.findViewById(R.id.cinemaName);
+                final TextView time = (TextView)view.findViewById(R.id.time);
                 AlertDialog.Builder dialog = new AlertDialog.Builder(SeclectCinema.this);
                 dialog.setTitle("购票确认").setMessage("是否花费"+price.getText()+"元购买"+movieName+"？").setPositiveButton("确认", new DialogInterface.OnClickListener() {
                     @Override
@@ -120,10 +121,10 @@ public class SeclectCinema extends TabActivity {
                         cinemaModel.buyTickets(movieName,cinemaName.getText().toString(),date,time.getText().toString());
                     }
                 }).setNegativeButton("取消",null).show();
-           }
-       });
-   }
-   //更新每个Tab
+            }
+        });
+    }
+    //更新每个Tab
     private void updateTab(final TabHost tabHost) {
         List<CinemaInfo> list;
         for (int i = 0; i < tabHost.getTabWidget().getChildCount(); i++) {
@@ -138,15 +139,14 @@ public class SeclectCinema extends TabActivity {
 
                 if (!allData.containsKey(allData.get(date))) {
                     //不包含当前tab的数据
-                    Log.d("allData大小",Integer.toString(allData.size()));
+                    //   Log.d("allData大小",Integer.toString(allData.size()));
                     date = tabHost.getCurrentTabTag();
-                    Log.d("Tag数据不包含",tabHost.getCurrentTabTag());
-                    if (adapter == null)
-                       Log.d("adapter","是空的");
+                    // Log.d("Tag数据不包含",tabHost.getCurrentTabTag());
+
                     cinemaModel.getData(movieName,date);
                 } else {
                     assignValue(cinemaModel.list,allData.get(date));
-                    Log.d("Tag数据包含",tabHost.getCurrentTabTag());
+                    // Log.d("Tag数据包含",tabHost.getCurrentTabTag());
                     cinemaModel.showListView();
                 }
 
